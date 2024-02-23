@@ -12,6 +12,7 @@ We say we have a collection of **m** objects **x**, called **X**:
 - **x** the input features vector [**n, 1**]
 
 $$X = (x^{(1)}, x^{(2)}, ..., x^{(m-1)}, x^{(m)})$$
+
 $$\text{where}\;x^{(i)} = (x^{(i)}_1, x^{(i)}_2, ..., x^{(i)}_{n-1}, x^{(i)}_n)^T$$
 
 we can define:
@@ -28,9 +29,12 @@ $$ \text{Given}\, 𝑥^i,\; 𝑦̂^i = 𝑃(𝑦^i = 1|𝑥^i), \text{where}\; 0
 
 The Logistic regression estimation is represented as:
 
-$$\text{For one example}\; x^{(i)}:$$
+For one example $$x^{(i)}$$:
+
 $$ 𝑦̂^i = a^i = 𝜎(z^i) = 𝜎(𝑤^{𝑇}𝑥^i + 𝑏) $$
+
 $$𝑥^i ∈ R^{n_{x}}, \; 𝑦∈ [0,1], \; 𝑦̂ ∈ [0,1], \; 𝑤 ∈ R^{n_{x}}, \; 𝑏 ∈ ℝ; \;$$
+
 $$\text{where} z^{(i)} = w^T x^{(i)} + b$$
 
 The logistic regression uses te following parameters to estimate the input features vector:
@@ -51,7 +55,7 @@ The sigmoid function has the following behavior:
 
 > Note: from Sigmoid to ReLU
 >
-Switching from the sigmoid to the ReLU activation function in the gradient descent optimization algorithm significantly expedited convergence. This improvement stems from the fact that the sigmoid function yields extremely small values for inputs less than zero, which approach zero but are not precisely zero. Consequently, learning with these minuscule numbers was notably sluggish.
+> Switching from the sigmoid to the ReLU activation function in the gradient descent optimization algorithm significantly expedited convergence. This improvement stems from the fact that the sigmoid function yields extremely small values for inputs less than zero, which approach zero but are not precisely zero. Consequently, learning with these minuscule numbers was notably sluggish.
 
 **L** called the **loss function** is a function will need to define to measure how good our output y^ is when the true label is y. **L** is defined with respect to a single training example: it measures how well you're doing on a single training example.
 
@@ -63,7 +67,7 @@ $$\mathcal{L}(a^{(i)}, y^{(i)}) = - y^{(i)} \log(a^{(i)}) - (1-y^{(i)} ) \log(1-
 >
 > $$\mathcal{L}(a^{(i)}, y^{(i)}) = \frac{1}{2}( y^{(i)} - y^{(i)} )^2$$
 >
-the only problem is that this function is non convex and has lots of different local optimal. We are looking for a function that could explain the probability of having 1 or 0 and the former function explains this probability. This note can be expanded, see biblio.
+> the only problem is that this function is non convex and has lots of different local optimal. We are looking for a function that could explain the probability of having 1 or 0 and the former function explains this probability. This note can be expanded, see biblio.
 
 The **cost function** measures how are you doing on the entire training set. So in training your logistic regression model, we're going to try to find parameters **w** and **b** that minimize the overall cost function **J**.
 
@@ -82,38 +86,42 @@ You've implemented several functions that:
 
 - Use the learned **w** and **b** to predict the labels for a given set of examples
 
-###Initializing parameters
+### Initializing parameters
 What we want to do is to find the value of **w** and **b** that corresponds to the minimum of the cost function **J**; and because this function is convex, no matter where you initialize, you should get to the same point.
 
 Initialize **w** as a vector of zeros and **b**=0.
 
-###Parameters learning
+### Parameters learning
 You can use the gradient descent algorithm to train or to learn the parameters **w** and **b** on your training set.
 
-###Forward propagation
+### Forward propagation
 Compute the cost function **J**:
 
 $$J = -\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\log(a^{(i)})+(1-y^{(i)})\log(1-a^{(i)}))$$
 
-###Backwards propagation
+### Backwards propagation
 Find the gradient **dw** and **db**: the goal is to learn **w** and **b** by minimizing the cost function **J**.
 
 $$A = \sigma(w^T X + b) = (a^{(1)}, a^{(2)}, ..., a^{(m-1)}, a^{(m)})$$
+
 $$dw =\frac{\partial J}{\partial w} = \frac{1}{m}X(A-Y)^T$$
+
 $$ db=\frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^m (a^{(i)}-y^{(i)})$$
 
 **w** has dimension [**n, 1**]; X has dimension [**n, m**]; A has dimension [**1, m**].
 
 In this example we used **vectorization**. The python numpy library exploit parallelization to enhance the computational time. In fact, both GPU and CPU have parallelization instructions: they're sometimes called SIMD instructions (Single Instruction Multiple Data.
 
-###Optimization:
+### Optimization:
 Update the parameters using gradient descent method
 
 $$w = w - \alpha \text{ } dw\;$$
+
 $$b = b - \alpha \text{ } db\;$$
+
 where $$\alpha$$ is the learning rate
 
-###Prediction
+### Prediction
 To perform the prediction two steps are necessary.
 
 - Compute $$\hat{Y} = A = \sigma(w^T X + b)$$
