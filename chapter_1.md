@@ -55,7 +55,7 @@ The sigmoid function has the following behavior:
 
 > Note: from Sigmoid to ReLU
 >
-> Switching from the sigmoid to the ReLU activation function in the gradient descent optimization algorithm significantly expedited convergence. This improvement stems from the fact that the sigmoid function yields extremely small values for inputs less than zero, which approach zero but are not precisely zero. Consequently, learning with these minuscule numbers was notably sluggish.
+> Switching from the sigmoid to the ReLU activation function in the gradient descent optimization algorithm significantly expedited convergence. This improvement stems from the fact that the sigmoid function yields extremely small values for inputs less than zero, which approach zero but are not precisely zero. Consequently, learning with these minuscule numbers was notably slow.
 
 **L** called the **loss function** is a function will need to define to measure how good our output 𝑦̂ is when the true label is y. **L** is defined with respect to a single training example: it measures how well you're doing on a single training example.
 
