@@ -5,7 +5,7 @@ Logistic regression is a learning algorithm used in a supervised learning proble
 
 The goal of logistic regression is to minimize the error between its predictions and training data.
 
-![image](.\img\ch_1\img_1.jpg)
+![image](img/ch_1/img_1.jpg)
 
 We say we have a collection of **m** objects **x**, called **X**:
 - **X** is our dataset, dimension [**n, m**]. ~~It is posible to find implementation of X with dimension [m, n], but the prior implementation make this easier.~~
@@ -115,9 +115,9 @@ In this example we used **vectorization**. The python numpy library exploit para
 ### Optimization:
 Update the parameters using gradient descent method
 
-$$w = w - \alpha \text{ } dw\;$$
+$$w = w - \alpha \; dw\;$$
 
-$$b = b - \alpha \text{ } db\;$$
+$$b = b - \alpha \; db\;$$
 
 where $\alpha$ is the learning rate
 
@@ -127,3 +127,10 @@ To perform the prediction two steps are necessary.
 - Compute $$\hat{Y} = A = \sigma(w^T X + b)$$
 
 - then perform the binarization: Convert the entries of a into 0 (if activation <= 0.5) or 1 (if activation > 0.5)
+
+
+> Bibliography:
+> 
+> [Implementing a Neural Network from Scratch in Python](https://dennybritz.com/posts/wildml/implementing-a-neural-network-from-scratch/)
+> 
+> [Why normalize images by subtracting dataset's image mean, instead of the current image mean in deep learning?](https://stats.stackexchange.com/questions/211436/why-normalize-images-by-subtracting-datasets-image-mean-instead-of-the-current)
