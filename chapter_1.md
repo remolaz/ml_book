@@ -5,7 +5,7 @@ Logistic regression is a learning algorithm used in a supervised learning proble
 
 The goal of logistic regression is to minimize the error between its predictions and training data.
 
-![image](img\ch_1\img_1.jpg)
+![image](.\img\ch_1\img_1.jpg)
 
 We say we have a collection of **m** objects **x**, called **X**:
 - **X** is our dataset, dimension [**n, m**]. ~~It is posible to find implementation of X with dimension [m, n], but the prior implementation make this easier.~~
@@ -29,7 +29,7 @@ $$ \text{Given}\, 𝑥^i,\; 𝑦̂^i = 𝑃(𝑦^i = 1|𝑥^i), \text{where}\; 0
 
 The Logistic regression estimation is represented as:
 
-For one example $$x^{(i)}$$:
+For one example $ x^{(i)} $:
 
 $$ 𝑦̂^i = a^i = 𝜎(z^i) = 𝜎(𝑤^{𝑇}𝑥^i + 𝑏) $$
 
@@ -80,9 +80,9 @@ You've implemented several functions that:
 
 - Initialize **w** and **b**
 - Create a for loop over each sample to Optimize the loss iteratively to learn parameters (w,b):
- - Calculate current loss: forward propagation
- - Calculate current gradient: backward propagation
- - Update parameters: gradient descent
+  - Calculate current loss: forward propagation
+  - Calculate current gradient: backward propagation
+  - Update parameters: gradient descent
 
 - Use the learned **w** and **b** to predict the labels for a given set of examples
 
@@ -110,7 +110,7 @@ $$ db=\frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^m (a^{(i)}-y^{(i)})
 
 **w** has dimension [**n, 1**]; X has dimension [**n, m**]; A has dimension [**1, m**].
 
-In this example we used **vectorization**. The python numpy library exploit parallelization to enhance the computational time. In fact, both GPU and CPU have parallelization instructions: they're sometimes called SIMD instructions (Single Instruction Multiple Data.
+In this example we used **vectorization**. The python numpy library exploit parallelization to enhance the computational time. In fact, both GPU and CPU have parallelization instructions: they're sometimes called SIMD instructions (Single Instruction Multiple Data).
 
 ### Optimization:
 Update the parameters using gradient descent method
@@ -119,7 +119,7 @@ $$w = w - \alpha \text{ } dw\;$$
 
 $$b = b - \alpha \text{ } db\;$$
 
-where $$\alpha$$ is the learning rate
+where $\alpha$ is the learning rate
 
 ### Prediction
 To perform the prediction two steps are necessary.
