@@ -25,7 +25,7 @@ $$Y = (y^{(1)}, y^{(2)}, ..., y^{(m-1)}, y^{(m)})$$
 
 Using the logistic regression we want to predict y from x, for that we output an estimation based on probabilities:
 
-$$ \text{Given}\, 𝑥^i,\; 𝑦̂^i = 𝑃(𝑦^i = 1|𝑥^i), \text{where}\; 0 ≤ 𝑦̂^i ≤ 1 $$
+$$ \text{Given}\, (𝑥^i,\; 𝑦̂^i) = 𝑃(𝑦^i = 1|𝑥^i), \text{where}\; 0 ≤ 𝑦̂^i ≤ 1 $$
 
 The Logistic regression estimation is represented as:
 
@@ -57,7 +57,7 @@ The sigmoid function has the following behavior:
 >
 > Switching from the sigmoid to the ReLU activation function in the gradient descent optimization algorithm significantly expedited convergence. This improvement stems from the fact that the sigmoid function yields extremely small values for inputs less than zero, which approach zero but are not precisely zero. Consequently, learning with these minuscule numbers was notably sluggish.
 
-**L** called the **loss function** is a function will need to define to measure how good our output y^ is when the true label is y. **L** is defined with respect to a single training example: it measures how well you're doing on a single training example.
+**L** called the **loss function** is a function will need to define to measure how good our output 𝑦̂ is when the true label is y. **L** is defined with respect to a single training example: it measures how well you're doing on a single training example.
 
 The **Loss function** is computed as follows:
 
@@ -80,9 +80,9 @@ You've implemented several functions that:
 
 - Initialize **w** and **b**
 - Create a for loop over each sample to Optimize the loss iteratively to learn parameters (w,b):
-  - Calculate current loss: forward propagation
-  - Calculate current gradient: backward propagation
-  - Update parameters: gradient descent
+  - Calculate current loss: **forward propagation**
+  - Calculate current gradient: **backward propagation**
+  - Update parameters: **gradient descent**
 
 - Use the learned **w** and **b** to predict the labels for a given set of examples
 
@@ -108,9 +108,9 @@ $$dw =\frac{\partial J}{\partial w} = \frac{1}{m}X(A-Y)^T$$
 
 $$ db=\frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^m (a^{(i)}-y^{(i)})$$
 
-**w** has dimension [**n, 1**]; X has dimension [**n, m**]; A has dimension [**1, m**].
+**w** has dimension [**n, 1**]; **X** has dimension [**n, m**]; **A** has dimension [**1, m**].
 
-In this example we used **vectorization**. The python numpy library exploit parallelization to enhance the computational time. In fact, both GPU and CPU have parallelization instructions: they're sometimes called SIMD instructions (Single Instruction Multiple Data).
+In this example we used **vectorization**. The python numpy library exploit parallelization to enhance the computational time. In fact, both GPU and CPU have parallelization instructions: they're sometimes called **SIMD** instructions (Single Instruction Multiple Data).
 
 ### Optimization:
 Update the parameters using gradient descent method
@@ -119,7 +119,7 @@ $$w = w - \alpha \; dw\;$$
 
 $$b = b - \alpha \; db\;$$
 
-where $\alpha$ is the learning rate
+where $\alpha$ is the learning rate.
 
 ### Prediction
 To perform the prediction two steps are necessary.
